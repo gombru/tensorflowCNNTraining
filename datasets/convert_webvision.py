@@ -32,9 +32,9 @@ import os
 import random
 import sys
 
-import tensorflow as tf
-
 from datasets import dataset_utils
+
+import tensorflow as tf
 
 # Seed for repeatability.
 _RANDOM_SEED = 0
@@ -173,4 +173,4 @@ def run(dataset_dir, train, val):
   print('\nFinished converting the WebVision dataset!')
 
 
-run('../../../datasets/WebVision/', 'info/train_filtered_balanced.txt','info/val_filelist.txt')
+run('../../datasets/WebVision/', 'info/train_filtered_balanced.txt','info/val_filelist.txt')
