@@ -15,8 +15,8 @@ from preprocessing import preprocessing_factory
 # General Config #
 ######################
 logs_dir = '/home/raulgomez/datasets/WebVision/TF-logs/' # Directory where checkpoints and event logs are written to
-num_readers = 4 # The number of parallel readers that read data from the dataset
-num_preprocessing_threads = 4 # The number of parallel readers that read data from the dataset
+num_readers = 8 # The number of parallel readers that read data from the dataset
+num_preprocessing_threads = 8 # The number of parallel readers that read data from the dataset
 log_every_n_steps = 10 # The frequency with which logs are print
 save_summaries_secs = 600 # The frequency with which summaries are saved, in seconds
 save_interval_secs = 600 # The frequency with which summaries are saved, in seconds.
@@ -27,7 +27,7 @@ save_interval_secs = 600 # The frequency with which summaries are saved, in seco
 ######################
 weight_decay = 0.00004 # The weight decay on the model weights
 optimizer = 'rmsprop' # The name of the optimizer, one of "adadelta", "adagrad", "adam", "ftrl", "momentum", "sgd" or "rmsprop"
-learning_rate = 0.01
+learning_rate = 0.01 # 0.01 # 0.0454 was using 20 replicas, so using 4 we may want 0.01
 adadelta_rho = 0.95 # The decay rate for adadelta
 
 adagrad_initial_accumulator_value = 0.1 # Starting value for the AdaGrad accumulators
@@ -54,7 +54,7 @@ learning_rate_decay_type = 'exponential' # Specifies how the learning rate is de
 end_learning_rate = 0.0001 # The minimal end learning rate used by a polynomial decay learning rate
 label_smoothing = 0.0 # The amount of label smoothing
 learning_rate_decay_factor = 0.94 # Learning rate decay factor
-num_epochs_per_decay = 2.0 # Number of epochs after which learning rate decays
+num_epochs_per_decay = 4.0 # Number of epochs after which learning rate decays # 2.0 That was in imagenet ~8M images. Here we have ~2.5M we might want more epochs per decay.
 
 sync_replicas = False # Whether or not to synchronize the replicas during training
 replicas_to_aggregate = 1 # The Number of gradients to collect before updating params
@@ -66,7 +66,7 @@ moving_average_decay = None # The decay to use for the moving average. If left a
 #######################
 dataset_name = 'webvision' # The name of the dataset to load
 dataset_split_name = 'train' # The name of the train/test split
-dataset_dir = '/home/raulgomez/datasets/WebVision/TF-dataset/' # The directory where the dataset files are stored
+dataset_dir = '/home/Imatge/ssd2/WebVision/TF-dataset/' # The directory where the dataset files are stored
 model_name = 'inception_resnet_v2' # The name of the architecture to train
 preprocessing_name = None # The name of the preprocessing to use. If left as `None`, then the model_name flag is used
 batch_size = 32 # The number of samples in each batch
@@ -77,7 +77,7 @@ max_number_of_steps = None # The maximum number of training steps
 # Fine-Tuning Flags #
 #####################
 checkpoint_path = None # The path to a checkpoint from which to fine-tune
-num_clones = 1 # Number of model clones to deploy
+num_clones = 1 # Number of model clones to deploy #Number of GPUs?
 checkpoint_exclude_scopes = None # Comma-separated list of scopes of variables to exclude when restoring from a checkpoint
 trainable_scopes = None # Comma-separated list of scopes to filter the set of variables to train. By default, None would train all the variables
 ignore_missing_vars = False # When restoring a checkpoint would ignore missing variables
