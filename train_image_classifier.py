@@ -14,7 +14,7 @@ from preprocessing import preprocessing_factory
 ######################
 # General Config #
 ######################
-logs_dir = '/home/raulgomez/datasets/WebVision/TF-logs/' # Directory where checkpoints and event logs are written to
+logs_dir = '/home/Imatge/datasets/WebVision/TF-logs/' # Directory where checkpoints and event logs are written to
 num_readers = 8 # The number of parallel readers that read data from the dataset
 num_preprocessing_threads = 8 # The number of parallel readers that read data from the dataset
 log_every_n_steps = 10 # The frequency with which logs are print

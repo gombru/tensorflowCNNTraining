@@ -6,7 +6,7 @@ from scipy.misc import imshow, imread
 slim = tf.contrib.slim
 
 batch_size = 1 # 100 # The number of samples in each batch
-checkpoint_path = '/home/raulgomez/datasets/WebVision/TF-logs/' # An absolute path to a checkpoint file
+checkpoint_path = '/home/raulgomez/datasets/WebVision/TF-logs-cluster/4/TF-logs/' # An absolute path to a checkpoint file
 model_name = 'InceptionResnetV2'
 image_size = 299
 num_classes = 1000
@@ -22,7 +22,9 @@ with tf.Graph().as_default():
 
         logits, _ = inception_resnet_v2.inception_resnet_v2(processed_images, num_classes=num_classes, is_training=False)
         probabilities = tf.nn.softmax(logits)
+        print(checkpoint_path)
         checkpoint_path = tf.train.latest_checkpoint(checkpoint_path)
+        print(checkpoint_path)
         init_fn = slim.assign_from_checkpoint_fn(checkpoint_path, slim.get_model_variables(model_name))
 
         with tf.Session() as sess:

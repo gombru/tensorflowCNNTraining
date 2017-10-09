@@ -27,8 +27,8 @@ from preprocessing import preprocessing_factory
 
 batch_size = 200 # 100 # The number of samples in each batch
 max_num_batches = None # None # Max number of batches to evaluate by default use all
-checkpoint_path = '/home/raulgomez/datasets/WebVision/TF-logs/' # An absolute path to a checkpoint file
-eval_dir = '/home/raulgomez/datasets/WebVision/TF-logs/' # Directory where the results are saved to
+checkpoint_path = '/home/raulgomez/datasets/WebVision/TF-logs-cluster/9/TF-logs/' # An absolute path to a checkpoint file
+eval_dir = '/home/raulgomez/datasets/WebVision/TF-logs-cluster/9/TF-logs/' # Directory where the results are saved to
 num_preprocessing_threads = 4
 dataset_name = 'webvision'
 dataset_split_name = 'validation'

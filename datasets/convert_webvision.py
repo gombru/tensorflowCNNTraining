@@ -84,7 +84,7 @@ def _get_filenames_and_classes(dataset_dir, split):
 def _get_dataset_filename(dataset_dir, split_name, shard_id):
   output_filename = 'webvision_%s_%05d-of-%05d.tfrecord' % (
       split_name, shard_id, _NUM_SHARDS)
-  return os.path.join('/home/Imatge/ssd2/WebVision/TF-dataset/', output_filename)
+  return os.path.join('/home/raulgomez/datasets/WebVision/TF-dataset/', output_filename)
 
 
 def _convert_dataset(split_name, filenames, labels, dataset_dir):
@@ -156,14 +156,14 @@ def run(dataset_dir, train, val):
   print('Validation set conversion done')
 
   # Train
-  photo_filenames, photo_labels = _get_filenames_and_classes(dataset_dir, train)
-  print('Training images: ' + str(len(photo_filenames)))
-  random.seed(_RANDOM_SEED)
-  c = list(zip(photo_filenames, photo_labels))
-  random.shuffle(c)
-  photo_filenames, photo_labels = zip(*c)
-  _convert_dataset('train', photo_filenames, photo_labels, dataset_dir)
-  print('Training set conversion done')
+  # photo_filenames, photo_labels = _get_filenames_and_classes(dataset_dir, train)
+  # print('Training images: ' + str(len(photo_filenames)))
+  # random.seed(_RANDOM_SEED)
+  # c = list(zip(photo_filenames, photo_labels))
+  # random.shuffle(c)
+  # photo_filenames, photo_labels = zip(*c)
+  # _convert_dataset('train', photo_filenames, photo_labels, dataset_dir)
+  # print('Training set conversion done')
 
 
   # Finally, write the labels file:
@@ -173,4 +173,4 @@ def run(dataset_dir, train, val):
   print('\nFinished converting the WebVision dataset!')
 
 
-run('../../datasets/WebVision/', 'info/train_filtered_balanced.txt','info/val_filelist.txt')
+run('../../../datasets/WebVision/', 'info/train_filtered_balanced.txt','info/val_filelist.txt')
