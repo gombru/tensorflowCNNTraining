@@ -6,7 +6,7 @@ from scipy.misc import imshow, imread
 slim = tf.contrib.slim
 
 batch_size = 1 # 100 # The number of samples in each batch
-checkpoint_path = '/home/raulgomez/datasets/WebVision/TF-logs-cluster/4/TF-logs/' # An absolute path to a checkpoint file
+checkpoint_path = '/home/raulgomez/datasets/WebVision/TF-logs-cluster/18/TF-logs/' # An absolute path to a checkpoint file
 model_name = 'InceptionResnetV2'
 image_size = 299
 num_classes = 1000
