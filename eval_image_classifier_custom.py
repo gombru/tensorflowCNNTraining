@@ -10,7 +10,7 @@ import os
 slim = tf.contrib.slim
 
 batch_size = 144 # 100 # The number of samples in each batch
-checkpoint_path = '../../datasets/WebVision/TF-logs-cluster/18/TF-logs/' # An absolute path to a checkpoint file
+checkpoint_path = '../../datasets/WebVision/TF-logs-cluster/23/TF-logs/' # An absolute path to a checkpoint file
 model_name = 'InceptionResnetV2'
 image_size = 299
 num_classes = 1000
@@ -18,7 +18,7 @@ split = 'val'
 test = np.loadtxt('../../datasets/WebVision/info/'+split+'_filelist.txt', dtype=str)
 num_crops = 144
 
-output_file_dir = '../../datasets/WebVision/results/144Crops_day18'
+output_file_dir = '../../datasets/WebVision/results/144Crops_day23'
 if not os.path.exists(output_file_dir):
     os.makedirs(output_file_dir)
 output_file_path = output_file_dir + '/'+split+'.txt'
